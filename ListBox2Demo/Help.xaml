@@ -1,0 +1,115 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="ListBox2Demo.Help"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit" 
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <toolkit:TransitionService.NavigationInTransition>
+        <toolkit:NavigationInTransition>
+            <toolkit:NavigationInTransition.Backward>
+                <toolkit:TurnstileTransition Mode="BackwardIn"/>
+            </toolkit:NavigationInTransition.Backward>
+            <toolkit:NavigationInTransition.Forward>
+                <toolkit:TurnstileTransition Mode="ForwardIn"/>
+            </toolkit:NavigationInTransition.Forward>
+        </toolkit:NavigationInTransition>
+    </toolkit:TransitionService.NavigationInTransition>
+    <toolkit:TransitionService.NavigationOutTransition>
+        <toolkit:NavigationOutTransition>
+            <toolkit:NavigationOutTransition.Backward>
+                <toolkit:TurnstileTransition Mode="BackwardOut"/>
+            </toolkit:NavigationOutTransition.Backward>
+            <toolkit:NavigationOutTransition.Forward>
+                <toolkit:TurnstileTransition Mode="ForwardOut"/>
+            </toolkit:NavigationOutTransition.Forward>
+        </toolkit:NavigationOutTransition>
+    </toolkit:TransitionService.NavigationOutTransition>
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Black">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="I.DO" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="帮助(F.A.Q)" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <ScrollViewer>
+                <StackPanel Orientation="Vertical">
+                    <TextBlock TextWrapping="Wrap" FontSize="25">注意：本程序十分简单易用，应该用不到帮助。</TextBlock>
+                    <TextBlock TextWrapping="Wrap">但是本着负责任的态度，还是应该写一下。</TextBlock>
+                    <TextBlock></TextBlock>
+                    
+                    <TextBlock TextWrapping="Wrap" FontSize="25" Foreground="{StaticResource PhoneAccentBrush}">1. 我要创建一个新的任务，要怎么做？</TextBlock>
+                    <TextBlock TextWrapping="Wrap">答：在下方菜单中，点击“添加”按钮。</TextBlock>
+                    <TextBlock TextWrapping="Wrap">PS：好多人问，为什么不用下拉刷新来添加？这是Window Phone，不是Android，不是ios，设计软件时要遵循Windows Phone的设计规范。</TextBlock>
+                    <TextBlock></TextBlock>
+
+                    <TextBlock TextWrapping="Wrap" FontSize="25" Foreground="{StaticResource PhoneAccentBrush}">2. 我要删除一个任务，要怎么做？</TextBlock>
+                    <TextBlock TextWrapping="Wrap">长按某个任务，就会有弹出菜单啦。</TextBlock>
+                    <TextBlock></TextBlock>
+
+                    <TextBlock TextWrapping="Wrap" FontSize="25" Foreground="{StaticResource PhoneAccentBrush}">3. 我要标记一个任务为已完成，要怎么做？</TextBlock>
+                    <TextBlock TextWrapping="Wrap">在任务上向右滑动，就可以标记为已完成。</TextBlock>
+                    <TextBlock TextWrapping="Wrap">同样，在任务上向左滑动，就可以标记为未完成。</TextBlock>
+                    <TextBlock></TextBlock>
+                    
+                    <TextBlock FontSize="25" Foreground="{StaticResource PhoneAccentBrush}">4. 我要清除已完成的任务，要怎么做？</TextBlock>
+                    <TextBlock TextWrapping="Wrap" VerticalAlignment="Center">点击菜单里的“清除已完成”就好了。</TextBlock>
+                    <TextBlock></TextBlock>
+                    
+                    <TextBlock TextWrapping="Wrap"  FontSize="25" Foreground="{StaticResource PhoneAccentBrush}">5. 我发现点击任意一个任务，会有三个按钮弹出来，都是干什么的？</TextBlock>
+                    <TextBlock TextWrapping="Wrap">你是说这一排吗？</TextBlock>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="0"  BorderThickness="0,0,0,0">
+                            <Image Source="/Images/important.png" HorizontalAlignment="Left" Width="48" Height="48" />
+                        </Button>
+                        <Button Grid.Column="1" BorderThickness="0,0,0,0">
+                            <Image Source="/Images/alarm.png" HorizontalAlignment="Left" Width="48" Height="48" />
+                        </Button>
+                        <Button Grid.Column="2" BorderThickness="0,0,0,0">
+                            <Image Source="/Images/edit.png" HorizontalAlignment="Left" Width="48" Height="48"/>
+                        </Button>
+                    </Grid>
+                    <TextBlock TextWrapping="Wrap">从左往右，依次是“设为重要”，“设定闹钟”以及“编辑”，具体的效果还要你去试试看哦。</TextBlock>
+                    <TextBlock></TextBlock>
+                    <TextBlock TextWrapping="Wrap"  FontSize="25" Foreground="{StaticResource PhoneAccentBrush}">6. 我觉得条目太多了，想全部删掉，肿么办？</TextBlock>
+                    <TextBlock TextWrapping="Wrap">使用本程序的终极奥义 - 清除全部数据，可以在设置中找到。</TextBlock>
+                    <TextBlock></TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="25" Foreground="{StaticResource PhoneAccentBrush}">7. 我想在桌面固定磁贴，要怎么弄？</TextBlock>
+                    <TextBlock TextWrapping="Wrap">设置里的磁帖只是演示作用的，想加磁贴，就去程序列表中添加桌面快捷方式吧。</TextBlock>
+                    <TextBlock></TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="25" Foreground="{StaticResource PhoneAccentBrush}">8. 可以添加与Gmail, Outlook等知名日历的任务同步吗？</TextBlock>
+                    <TextBlock TextWrapping="Wrap">就目前来看，微软已经给出了答复：对不起，基于安全性考虑，不行。</TextBlock>
+                    <TextBlock></TextBlock>
+                    <TextBlock TextWrapping="Wrap"  FontSize="25" Foreground="{StaticResource PhoneAccentBrush}">9. 我发现你的程序功能好少哦。</TextBlock>
+                    <TextBlock TextWrapping="Wrap">花里胡哨总会审美疲劳。</TextBlock>
+                    <TextBlock TextWrapping="Wrap">回归原始，一针见血，做最简洁的程序。</TextBlock>
+                    <TextBlock></TextBlock>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>

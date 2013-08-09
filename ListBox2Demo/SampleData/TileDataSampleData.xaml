@@ -1,0 +1,9 @@
+﻿<ListBox2Demo:TileData 
+    xmlns:ListBox2Demo="clr-namespace:ListBox2Demo" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    TextTitle="即将"
+    TextLine1="The first Text"
+    TextLine2="9"
+    TextLine3="9"
+    />
+

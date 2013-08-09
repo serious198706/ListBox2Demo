@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="I_DO.MyToast"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="480" d:DesignWidth="480">
+
+    <UserControl.Resources>
+        <!--自定义 “确定/取消”弹出框 播放动画-->
+        <Storyboard x:Name="ShowMessageBoxSB">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationX)" Storyboard.TargetName="gridBox">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-30"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
+    <Grid>
+
+        <!--自定义 “确定/取消”弹出框，弹出框为蓝色，背景为半透明黑色-->
+        <Grid  x:Name="gridDialog" Background="#33000000">
+            <Grid Height="280" x:Name="gridBox" VerticalAlignment="Top" Background="#ff1ba0e1">
+                <Grid.Projection>
+                    <PlaneProjection/>
+                </Grid.Projection>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="150"/>
+                    <RowDefinition Height="70"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="提示信息" x:Name="txtTitle" FontSize="25" Margin="25,10, 0, 0"/>
+
+                <!-- ContentControl 可以设置成任何其他的 Element，因为它的 Content 属性是 Object 类型的-->
+                <ContentControl HorizontalAlignment="Left" FontSize="30" Margin="40, 0, 0, 0" Content="文本内容文本" Grid.Row="1" x:Name="contentContainer"/>
+
+                <StackPanel Grid.Row="2" Orientation="Horizontal">
+                    <Button x:Name="btnOk" Content="OK" Width="200" Click="btnOk_Click"/>
+                    <Button x:Name="btnCancle" Content="Cancel" Width="200" Click="btnCancle_Click"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+
+        <!--自定义 Toast 通知，背景颜色和手机主题一致-->
+        <Border x:Name="borderToast" Height="50" Width="480" Margin="0,-50,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Background="{StaticResource PhoneAccentBrush}" RenderTransformOrigin="0.5,0.5">
+            <Border.RenderTransform>
+                <CompositeTransform/>
+            </Border.RenderTransform>
+            <TextBlock Margin="15,15,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" x:Name="txtToast" FontSize="22"/>
+        </Border>
+    </Grid>
+</UserControl>

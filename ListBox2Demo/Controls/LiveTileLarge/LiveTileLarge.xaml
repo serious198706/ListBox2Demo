@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="ListBox2Demo.Controls.LiveTileLarge.LiveTileLarge"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="336" d:DesignWidth="691">
+
+    <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneAccentBrush}" d:DataContext="{d:DesignData /SampleData/TileDataSampleData.xaml}">
+        <StackPanel Margin="12,12,12,12"  Orientation="Vertical">
+            <TextBlock Foreground="White" Margin="0,0,0,0" TextWrapping="Wrap" 
+                   Text="{Binding TextTitle}" FontSize="39"/>
+            <TextBlock></TextBlock>
+            <TextBlock Foreground="White" Margin="2,0,0,0" TextWrapping="Wrap" 
+                   Text="{Binding TextLine1}" FontSize="27"/>
+            <TextBlock Foreground="White" Margin="2,0,0,0" TextWrapping="Wrap" 
+                   Text="{Binding TextLine2}" FontSize="27"/>
+            <TextBlock Foreground="White" Margin="2,0,0,0" TextWrapping="Wrap" 
+                   Text="{Binding TextLine3}" FontSize="27"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
